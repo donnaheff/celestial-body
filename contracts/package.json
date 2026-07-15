@@ -1,0 +1,25 @@
+{
+  "name": "acme-bids-contracts",
+  "private": true,
+  "version": "0.1.0",
+  "description": "TenderEscrow — smart-contract escrow for Acme Bids (Sepolia testnet)",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:sepolia": "hardhat run scripts/deploy.ts --network sepolia",
+    "node": "hardhat node",
+    "compile:local": "ts-node --transpile-only scripts/compile-local.ts",
+    "test:local": "npm run compile:local && hardhat test --no-compile"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.17",
+    "dotenv": "^16.4.7",
+    "typescript": "^5.7.3",
+    "ts-node": "^10.9.2",
+    "solc": "^0.8.26"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.1.0"
+  }
+}

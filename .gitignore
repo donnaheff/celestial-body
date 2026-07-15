@@ -1,0 +1,23 @@
+node_modules
+.next
+out
+build
+dist
+*.tsbuildinfo
+.env
+.env.local
+*.local
+npm-debug.log*
+.DS_Store
+coverage
+
+# Hardhat / contracts
+contracts/node_modules
+contracts/artifacts
+contracts/artifacts-local
+contracts/cache
+contracts/typechain-types
+contracts/.env
+
+# drizzle
+drizzle/*.sql.bak
