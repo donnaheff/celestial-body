@@ -33,7 +33,15 @@ export function EscrowFunding({ brief, onFunded }: { brief: BriefDTO; onFunded: 
       <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
         <label className="card" style={{ cursor: "pointer", flexDirection: "row", alignItems: "center" }}>
           <span className="radio">
-            <input type="radio" name="escrow" checked={method === "flutterwave"} onChange={() => setMethod("flutterwave")} />
+            <input
+              type="radio"
+              name="escrow"
+              checked={method === "flutterwave"}
+              onChange={() => {
+                setMethod("flutterwave");
+                setError(null);
+              }}
+            />
             <span className="dot" />
           </span>
           <span>
@@ -45,7 +53,15 @@ export function EscrowFunding({ brief, onFunded }: { brief: BriefDTO; onFunded: 
         </label>
         <label className="card" style={{ cursor: "pointer", flexDirection: "row", alignItems: "center" }}>
           <span className="radio">
-            <input type="radio" name="escrow" checked={method === "smart_contract"} onChange={() => setMethod("smart_contract")} />
+            <input
+              type="radio"
+              name="escrow"
+              checked={method === "smart_contract"}
+              onChange={() => {
+                setMethod("smart_contract");
+                setError(null);
+              }}
+            />
             <span className="dot" />
           </span>
           <span>

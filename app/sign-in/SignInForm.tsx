@@ -24,7 +24,10 @@ export function SignInForm({
     setNoAccount(false);
     const result = await signIn("credentials", { email, password, redirect: false });
     setBusy(null);
-    if (result?.ok) {
+    // NextAuth v5's client signIn() sets `ok` from the HTTP fetch status,
+    // which is 200 even when credentials are wrong — the actual result is
+    // `error` (set to "CredentialsSignin" on failure), not `ok`.
+    if (result && !result.error) {
       router.push(callbackUrl);
       router.refresh();
       return;
@@ -49,7 +52,7 @@ export function SignInForm({
     }
     const result = await signIn("credentials", { email, password, redirect: false });
     setBusy(null);
-    if (result?.ok) {
+    if (result && !result.error) {
       router.push(callbackUrl);
       router.refresh();
     } else {
