@@ -26,9 +26,10 @@ export default async function SignInPage({
 
       <section className="section" style={{ maxWidth: 420 }}>
         <h6 style={{ color: "var(--color-accent)" }}>Client access</h6>
-        <h2>Sign in</h2>
+        <h2>Sign in or sign up</h2>
         <p style={{ opacity: 0.85, marginBottom: "var(--space-6)" }}>
-          Access your project management dashboard to submit a brief, review a quote and fund escrow.
+          Access your project management dashboard to submit a brief, review a quote and fund escrow. New here?
+          Create an account in a few seconds.
         </p>
 
         <SignInForm availableProviders={availableProviders} callbackUrl={callbackUrl ?? "/dashboard"} />

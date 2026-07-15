@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { auth } from "@/auth";
+import { Logo } from "@/components/Logo";
 
 type NavPage = "home" | "services" | "pricing" | "work" | "about" | "contact" | "signin" | "dashboard";
 
@@ -18,7 +19,20 @@ export async function Nav({ current }: { current: NavPage }) {
 
   return (
     <nav className="nav" style={{ position: "sticky", top: 0, background: "var(--color-bg)", zIndex: 20, flexWrap: "wrap" }}>
-      <Link href="/" className="nav-brand" style={{ textDecoration: "none", color: "inherit", fontWeight: 700, fontSize: 21 }}>
+      <Link
+        href="/"
+        className="nav-brand"
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          fontWeight: 700,
+          fontSize: 21,
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 8,
+        }}
+      >
+        <Logo size={24} />
         Acme Bids
       </Link>
       {LINKS.map((link) => (
