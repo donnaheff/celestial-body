@@ -53,7 +53,7 @@ export default function ContactPage() {
           <p className="card-body">
             hello@acmebids.co.uk
             <br />
-            020 7946 0192
+            +233 55 040 0401
             <br />
             Mon–Fri, 9:00–17:30
           </p>
