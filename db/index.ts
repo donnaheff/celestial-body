@@ -7,16 +7,18 @@ declare global {
   var __pgPool: Pool | undefined;
 }
 
-const connectionString = process.env.DATABASE_URL;
-if (!connectionString) {
-  throw new Error("DATABASE_URL is not set — see .env.example");
-}
+// Deliberately does NOT throw at import time when DATABASE_URL is unset.
+// This module is pulled in by auth.ts, which every route/page touches —
+// throwing here would take down pages that never actually query the DB
+// (e.g. marketing pages) in an environment where the DB isn't wired up yet.
+// A missing connection string still fails loudly, just at the first real
+// query instead of at module load.
 
 // Reuse the pool across hot reloads in dev so we don't exhaust connections.
 const pool =
   global.__pgPool ??
   new Pool({
-    connectionString,
+    connectionString: process.env.DATABASE_URL,
     max: 10,
   });
 if (process.env.NODE_ENV !== "production") global.__pgPool = pool;
