@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Plate } from "@/components/Plate";
+import { DocumentArt } from "@/components/illustrations/DocumentArt";
 
 const PROCESS_STEPS = [
   { kicker: "Step 1", title: "Brief", body: "Sign in and tell us the specification, your timeframe and your budget." },
@@ -34,7 +35,7 @@ export default function HomePage() {
             <Link href="/services" className="btn btn-secondary">See our services</Link>
           </div>
         </div>
-        <Plate aspect="4/5" stripe="hero" caption={"PHOTO\nwriter reviewing\na tender document"} />
+        <Plate aspect="4/5" illustration={<DocumentArt />} />
       </section>
 
       <hr className="hr" style={{ maxWidth: 1080, margin: "0 auto" }} />

@@ -1,6 +1,7 @@
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Plate } from "@/components/Plate";
+import { PortraitArt } from "@/components/illustrations/PortraitArt";
 
 export const metadata = { title: "About — Acme Bids" };
 
@@ -23,9 +24,9 @@ export default function AboutPage() {
           social care and public-sector procurement.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "var(--space-4)" }}>
-          {TEAM.map((member) => (
+          {TEAM.map((member, i) => (
             <div className="card" key={member.name}>
-              <Plate aspect="1/1" caption="PHOTO: portrait" />
+              <Plate aspect="1/1" illustration={<PortraitArt name={member.name} variant={i} />} />
               <div className="card-title" style={{ marginTop: "var(--space-2)" }}>{member.name}</div>
               <div className="card-meta">{member.meta}</div>
             </div>
