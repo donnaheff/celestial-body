@@ -2,20 +2,20 @@ import Link from "next/link";
 import { auth } from "@/auth";
 import { Logo } from "@/components/Logo";
 
-type NavPage = "home" | "services" | "pricing" | "work" | "about" | "contact" | "signin" | "dashboard";
+type NavPage = "home" | "services" | "pricing" | "work" | "contact" | "signin" | "dashboard" | "admin";
 
 const LINKS: { key: NavPage; href: string; label: string }[] = [
   { key: "home", href: "/", label: "Home" },
   { key: "services", href: "/services", label: "Services" },
   { key: "pricing", href: "/pricing", label: "Pricing" },
   { key: "work", href: "/work", label: "Work" },
-  { key: "about", href: "/about", label: "About" },
   { key: "contact", href: "/contact", label: "Contact" },
 ];
 
 export async function Nav({ current }: { current: NavPage }) {
   const session = await auth();
   const signedIn = !!session?.user;
+  const isAdmin = session?.user?.role === "admin";
 
   return (
     <nav className="nav" style={{ position: "sticky", top: 0, background: "var(--color-bg)", zIndex: 20, flexWrap: "wrap" }}>
@@ -40,6 +40,11 @@ export async function Nav({ current }: { current: NavPage }) {
           {link.label}
         </Link>
       ))}
+      {isAdmin && (
+        <Link href="/admin" aria-current={current === "admin" ? "page" : undefined}>
+          Admin
+        </Link>
+      )}
       {signedIn ? (
         <Link href="/dashboard" className="btn btn-secondary">
           Dashboard

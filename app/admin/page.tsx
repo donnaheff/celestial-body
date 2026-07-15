@@ -32,7 +32,7 @@ export default async function AdminBriefsPage() {
 
   return (
     <div className="page-shell">
-      <Nav current="dashboard" />
+      <Nav current="admin" />
       <section className="section" style={{ maxWidth: 1080 }}>
         <h6 style={{ color: "var(--color-accent)" }}>Operations</h6>
         <h2>Briefs</h2>

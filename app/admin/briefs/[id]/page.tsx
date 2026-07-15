@@ -28,7 +28,7 @@ export default async function AdminBriefDetailPage({ params }: { params: Promise
 
   return (
     <div className="page-shell">
-      <Nav current="dashboard" />
+      <Nav current="admin" />
       <section className="section" style={{ maxWidth: 780 }}>
         <h6 style={{ color: "var(--color-accent)" }}>Operations</h6>
         <h2>{brief.tenderType}</h2>
